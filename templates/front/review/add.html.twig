@@ -1,0 +1,23 @@
+{% extends 'front/base.html.twig' %}
+ {% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% block title %}Ajouter une critique{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Ajouter une critique</h1>
+            <h2>{{ movie.title }}</h2>
+            {# Ici on ouvre la balise form #}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            {# Ici on affiche tous les champs du formulaire #}
+            {{ form_widget(form) }}
+            {# on affiche manuellement le boutton submit #}
+            {# <button class="btn btn-success" type="submit">Ajouter</button> #}
+
+            {# On ferme la balise <form> #}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

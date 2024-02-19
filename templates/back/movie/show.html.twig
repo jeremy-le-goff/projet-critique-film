@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Author{% endblock %}
+
+{% block body %}
+    <h1>Author</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ movie.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ movie.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ movie.lastname }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ movie.createdAt ? movie.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ movie.updatedAt ? movie.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+             {% if movie.type == 'Série' %}
+            <tr>
+                <td>{{ movie.seasons }}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_back_author_index') }}">back to list</a>
+
+    <a href="{{ path('app_back_author_edit', {'id': movie.id}) }}">edit</a>
+
+    {{ include('back/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "back/base.html.twig" %}
+{% block title %}editer un article{% endblock %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+<h1>Editer un article</h1>
+{{ form(form) }}
+
+{% endblock %}

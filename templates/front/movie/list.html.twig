@@ -1,0 +1,93 @@
+ {# Ici j'inclus le layout modele base.html.twig #}
+{% extends "front/base.html.twig" %}
+
+ {% block body %}
+    <div class="container-xl bg-light p-5 border-top">
+
+        <div class="row mb-2">
+
+            <div class="col-12 col-lg-3">
+                <h2 class="text-center text-muted fw-bold mb-4">Les genres</h2>
+                <ul class="d-flex flex-column flex-wrap list-unstyled justify-content-center">
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Action</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Animation</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Aventure</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Comédie</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Dessin animé</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Documentaire</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Drame</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Espionnage</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Famille</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Fantastique</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Historique</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Policier</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Romance</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Science-fiction</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Thriller</li>
+                    <li class="btn btn-sm btn-outline-danger mx-1 mb-2">Western</li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-lg-9">
+
+                <h2 class="text-muted fw-bold mb-4">Les films et séries/Résultats de recherche</h2>
+
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm bg-white position-relative">
+                    <div class="col-4 movie__poster" style="background-image: url(https://m.media-amazon.com/images/M/MV5BNThmZGY4NzgtMTM4OC00NzNkLWEwNmEtMjdhMGY5YTc1NDE4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg);">
+                        <img src="{{ asset('images/poster-placeholder.png') }}" class="img-fluid">
+                        <!-- img src="https://m.media-amazon.com/images/M/MV5BNThmZGY4NzgtMTM4OC00NzNkLWEwNmEtMjdhMGY5YTc1NDE4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="img-fluid" -->
+                    </div>
+                    <div class="col-8 p-4 d-flex flex-column position-static">
+                        <a href="" class="movie__favorite fs-1 my-2 mx-3 link-danger"><i class="bi bi-bookmark-plus"></i></a>
+                        <strong class="d-inline-block mb-2 text-primary">Film</strong>
+                        <h3 class="mb-1">A Bug's Life</h3>
+                        <div class="mb-1 text-muted">93 min</div>
+                        <p><small>Tilt, fourmi quelque peu tête en l'air, détruit par
+                                inadvertance la
+                                récolte de la saison.</small>
+                        </p>
+                        <div class="d-flex" style="color: orange;">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span class="ps-1">4.8</span>
+                        </div>
+                        <a href="./show.html" class="fs-1 mt-3 text-danger align-self-start">
+                            <i class="bi bi-arrow-right-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm bg-white position-relative">
+                    <div class="col-4 movie__poster" style="background-image: url(https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_SX300.jpg);">
+                        <!-- img src="https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_SX300.jpg"
+                            class="img-fluid" -->
+                        <img src="images/poster-placeholder.png" alt="">
+                    </div>
+                    <div class="col-8 p-4 d-flex flex-column position-static">
+                        <a href="" class="movie__favorite fs-1 my-2 mx-3 link-danger"><i class="bi bi-bookmark-x-fill"></i></a>
+                        <strong class="d-inline-block mb-2 text-success">Série</strong>
+                        <h4 class="mb-1">Game of Thrones</h4>
+                        <div class="mb-1 text-muted">50 min</div>
+                        <p><small>Nine noble families fight for control over the lands of Westeros,
+                                while an
+                                ancient enemy returns...</small>
+                        </p>
+                        <div class="d-flex" style="color: orange;">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <i class="bi bi-star"></i>
+                            <span class="ps-1">3.7</span>
+                        </div>
+                        <a href="" class="fs-1 mt-3 text-danger align-self-start">
+                            <i class="bi bi-arrow-right-square"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        {% endblock %}

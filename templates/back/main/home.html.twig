@@ -1,0 +1,27 @@
+{# Ici j'inclus le layout modele base.html.twig #}
+{% extends "back/base.html.twig" %}
+
+{% block title %}Back Office{% endblock %}
+{# Ici j'écris du contenu dans le block <body> #}
+{% block body %}
+<h1 class="display-1 fw-bold text-center"> BACK OFFICE</h1>
+
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.centrerosaparks.paris/wp-content/uploads/2019/10/cinema-frontenay-rohan-rohan.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://momartre.net/wp-content/uploads/2017/10/cin%C3%A9ma.jpg" class="d-block w-100" alt="...">
+    </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+{% endblock %}

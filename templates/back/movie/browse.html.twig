@@ -1,0 +1,42 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}browse{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello! ✅</h1>
+
+   <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Type</th>
+            <th scope="col">Durée</th>
+            <th scope="col">Date de sortie</th>
+            <th scope="col">Actions dispo</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for movie in movies %}
+            <tr>
+                <th scope="row">{{ movie.id }}</th>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.type }}</td>
+                <td>{{ movie.duration }}</td>
+                <td>{{ movie.releaseDate|date("Y") }}</td>
+                <td class="d-flex"><a class="btn btn-primary" href="{{ path('app_back_movie_edit', {'id': movie.id}) }}"><i class="fas fa-eye"></i></i></a>
+                <a class="btn btn-danger" href="{{ path('app_back_Movie_delete', {'id': movie.id}) }}"><i class="fas fa-trash"></i></a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
+

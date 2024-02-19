@@ -1,0 +1,77 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}O'Flix{% endblock %}
+
+{% block body %}
+<div class="container bg-lighttt pt-5">
+
+        <div class="row mb-2">
+
+            <div class="col">
+
+                <div
+                    class="row g-0 borderrr rrrounded overflow-hidden flex-md-row align-items-start mb-4 shadow-smmm position-relative">
+                    <div class="col-4 movie__poster img-thumbnail"
+                        style="background-image: url({{ movie.poster }});">
+                        <img src="{{ asset('images/poster-placeholder.png') }}" class="img-fluid">
+                        <!-- img src="https://m.media-amazon.com/images/M/MV5BNThmZGY4NzgtMTM4OC00NzNkLWEwNmEtMjdhMGY5YTc1NDE4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="img-fluid" -->
+                    </div>
+                    <div class="col-8 p-4 d-flex flex-column position-static bg-light">
+                        <a href="" class="movie__favorite fs-1 my-2 mx-3 link-danger"><i class="bi bi-bookmark-plus"></i></a>
+                        <strong class="d-inline-block mb-2 text-primary"> {{movie.type }}</strong>
+                        <h3 class="mb-1">{{ movie.title }}</h3>
+                        <div class="mb-1 text-muted">{{ movie.duration }} min</div>
+                        <p>
+                            {% for genre in movie.genres %}
+                                <span class="badge bg-warning text-dark">{{ genre.name }}</span>
+                            {% endfor %}
+                        </p>
+                        <p>
+                            {{ movie.synopsis }}
+                        </p>
+                        <div class="d-flex mb-4" style="color: orange;">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span class="ps-1">{{ movie.rating }}</span>
+                        </div>
+                        {% if movie.type == 'Série' %}
+                        <h2>3 Saisons</h2>
+                        <ul class="list-unstyled">
+                            <li><span class="badge bg-danger fs-6 mb-2">Saison 1</span><small class="ms-1">(10 épisodes)</small></li>
+                            <li><span class="badge bg-danger fs-6 mb-2">Saison 2</span><small class="ms-1">(11 épisodes)</small></li>
+                            <li><span class="badge bg-danger fs-6 mb-2">Saison 3</span><small class="ms-1">(12 épisodes)</small></li>
+                        </ul>
+                        {% endif %}
+
+                        <dl class="row">
+                            <dt class="col-sm-12">Avec</dt>
+                            <dd class="col-sm-12">
+                            {% for casting in castingsByCredit %}
+                                {{ casting.person.firstname }} {{ casting.person.lastname }} ({{ casting.role }}) <br>
+                            {% endfor %}
+                            </dd>
+                            <dt class="col-sm-12">Pays</dt>
+                            <dd class="col-sm-12">USA</dd>
+                            <dt class="col-sm-12">Année</dt>
+                            <dd class="col-sm-12">{{ movie.releaseDate|date("Y") }}</dd>
+                        </dl>
+                        <h2>ajouter une critique </h2>
+                        <a class="btn btn-sm btn-warning" href="{{ path('app_review', {id:movie.id}) }}">Ajouter une critique</a>
+                         {% for review in movie.reviews %}
+                            <p>
+                                {{ review.content }}
+                                <small>{{ review.username }}</small>
+                            </p>
+                            {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
